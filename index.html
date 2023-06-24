@@ -4,9 +4,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Document</title>
 </head>
+
 <body>
+    <header>
+
+    </header>
+
+    <main>
+        <div>
+
+            <div>
+                <h3>Find An Alternative Fuel Source!</h3>
+                <form>
+                <label>Find By City</label>
+                <input type="text"/>
+                <button type="submit" class="btn">Go!</button>
+                </form>
+            </div>
+
+            <div>
+                <h3 class="card-header text-uppercase">Favorites</h3>
+                <div>
+                <!-- add favorites content -->
+                </div>
+            </div>
+
+        </div>
+
+        <div>
+            <h2>Showing fuel sources for: <span id="search-term"></span></h2>
+            <!-- use next div for list of fuel sources -->
+            <div id="places-container" class="list-places"></div>
+        </div>
+
+    </main>
     
 </body>
 </html>
