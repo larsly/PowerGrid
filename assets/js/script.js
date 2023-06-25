@@ -1,3 +1,7 @@
+// set up our event listener for search button. Need to write function handleSearchFormSubmit
+var searchForm = document.querySelector('#search');
+searchForm.addEventListener('submit', handleSearchFormSubmit);
+
 // assuming that we have a favorite button next to our populated list items
 // function to loop through our list items and add a click event listener to each favorite button
 // needs to be workshopped but its a starting point
