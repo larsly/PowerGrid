@@ -29,6 +29,10 @@
     padding-left: 10px;
 }
 
+.heroImg {
+    width: 100%;
+}
+
 .welcomeBox {
     padding: 65px 35px 65px 35px;
 }
