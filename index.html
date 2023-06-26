@@ -1,12 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>PowerGrid</title>
+    <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="css/app.css">
 </head>
+
 <body>
+    <header>
+
+    </header>
+
+    <main>
+        <div>
+
+            <div>
+                <h3>Find An Alternative Fuel Source!</h3>
+                <form>
+                <label>Find By City</label>
+                <input type="text"/>
+                <button type="submit" id="search" class="btn">Go!</button>
+                </form>
+            </div>
+
+            <div>
+                <h3 class="card-header text-uppercase">Favorites</h3>
+                <div>
+                <!-- add favorites content -->
+                </div>
+            </div>
+
+        </div>
+
+        <div>
+            <h2>Showing fuel sources for: <span id="search-term"></span></h2>
+            <!-- use next div for list of fuel sources -->
+            <div id="places-container" class="list-places"></div>
+        </div>
+
+    </main>
     
+
+
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.js"></script>
+    <script src="js/app.js"></script>
+
 </body>
 </html>

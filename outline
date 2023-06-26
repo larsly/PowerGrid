@@ -1,0 +1,44 @@
+# Notes
+
+## Larissa, Minh, Matt, Casey
+
+# Ideas
+
+~alternative fuel source locator~
+Reminder App
+Shopping list
+
+# Features
+
+google maps api - https://developers.google.com/maps/
+http://jsfiddle.net/salman/4mtyu/
+https://developer.nrel.gov/docs/transportation/alt-fuel-stations-v1/
+off canvas for styling page if we can find
+
+# User Story
+
+AS AN alternative fuel source vehicle owner
+I WANT to find the location of alternative fuel sources
+SO THAT I can keep driving
+
+# Acceptance Criteria
+
+GIVEN a map with fuel locators
+WHEN I search for fuel locations
+THEN I'm presented with a list of locations
+WHEN I switch to map view 
+THEN I am presented with markers on my map
+
+# Breakdown
+
+## Functionality
+
+Search bar with button
+populate list when button is clicked
+favorite local storage
+connect apis and css
+
+
+## Style
+
+foundation?
