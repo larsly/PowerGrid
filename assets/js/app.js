@@ -1,3 +1,6 @@
+$(document).foundation()
+
+
 // set up our event listener for search button. Need to write function handleSearchFormSubmit
 var searchForm = document.querySelector('#search');
 searchForm.addEventListener('submit', handleSearchFormSubmit);
