@@ -1,1 +1,23 @@
 /* this is where we use any custom CSS not included with Foundation */
+* {
+    font-family: 'Open Sans', sans-serif;
+    /* font-family: 'Ubuntu', sans-serif; */
+}
+.title-bar {
+    padding: 20px;
+}
+
+/* .title-bar-title {
+    font-size: 25px;
+} */
+
+.infoCards,
+.card1,
+.card2 {
+    border: 2px solid black;
+}
+
+.card1,
+.card2 {
+    padding: 20px;
+}
