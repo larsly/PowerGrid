@@ -3,6 +3,7 @@
     --darkBlueGrey: rgb(72, 129, 147);
     --lightBlueGrey: rgb(240, 252, 255);
     --blueGrey: rgb(108, 154, 168);
+    --yellow: rgb(255, 255, 183);
 }
 
 * {
@@ -32,11 +33,42 @@
     padding: 65px 35px 65px 35px;
 }
 
-.infoCards,
+.powerUp {
+    background-color: var(--yellow);
+    color: var(--darkBlueGrey);
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.infoCards {
+    padding: 20px;
+}
+
 .card1,
 .card2 {
-    border: 2px solid var(--blueGrey);
+    background-color: var(--blueGrey);
+    /* border: 2px solid var(--blueGrey); */
     padding: 20px;
+}
+
+.card1,
+.card2,
+.card1-text,
+.card2-text {
+    background-color: var(--blueGrey);
+}
+
+.card1 {
+    border-radius: 0 80px 80px 0;
+}
+
+.card2 {
+    border-radius: 80px 0 0 80px;
+}
+
+.img1,
+.img2 {
+    border-radius: 10px;
 }
 
 /* .card1,
