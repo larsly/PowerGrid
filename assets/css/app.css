@@ -1,23 +1,49 @@
 /* this is where we use any custom CSS not included with Foundation */
+:root {
+    --darkBlueGrey: rgb(72, 129, 147);
+    --lightBlueGrey: rgb(240, 252, 255);
+    --blueGrey: rgb(108, 154, 168);
+}
+
 * {
     font-family: 'Open Sans', sans-serif;
+    color: var(--lightBlueGrey);
+    background-color: var(--darkBlueGrey);
     /* font-family: 'Ubuntu', sans-serif; */
 }
+
+.title-bar,
+.title-bar-title,
+.title-bar-left,
+.title-bar-right,
+.menu-icon {
+    background-color: black;
+}
+
 .title-bar {
     padding: 20px;
 }
 
-/* .title-bar-title {
-    font-size: 25px;
-} */
+.title-bar-title {
+    padding-left: 10px;
+}
+
+.welcomeBox {
+    padding: 65px 35px 65px 35px;
+}
 
 .infoCards,
 .card1,
 .card2 {
-    border: 2px solid black;
+    border: 2px solid var(--blueGrey);
+    padding: 20px;
 }
 
-.card1,
+/* .card1,
 .card2 {
     padding: 20px;
+} */
+
+footer {
+    padding: 60px 20px 20px 20px;
 }
