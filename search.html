@@ -11,40 +11,44 @@
 
 <body>
     <header>
-
+        <!-- <h1>Welcome to the PowerGrid</h1> -->
+        <div class="title-bar">
+            <div class="title-bar-left">
+              <button class="menu-icon" type="button"></button>
+              <span class="title-bar-title h3">PowerGrid</span>
+            </div>
+            <div class="title-bar-right">
+              <button class="menu-icon" type="button"></button>
+            </div>
+          </div>
     </header>
 
     <main>
-      <div class="grid-x grid-margin-x small-up-2 medium-up-3 search-form-container">
-        <div class="cell">
-          <div class="card box1">
-            <div class="card-section">
-            <h4>Find Alternative Fuel Sources!</h4>
-            <form>
-              <label>Find By City</label>
-              <input type="text"/>
-              <button type="submit" id="search" class="button">Go!</button>
-              </form>
-            </div>
-          </div>
-        </div>
-        <div class="cell">
-          <div class="card box2">
-            <div class="card-section">
-              <h4>Favorites</h4>
-              <ul>
-
-
-
-
-                    
-                  </div>
+        <div class="grid-x grid-margin-x small-up-2 medium-up-3 search-form-container">
+            
+            <div class="cell">
+                <div class="card box1">
+                    <div class="card-section">
+                        <h4>Find Alternative Fuel Sources!</h4>
+                        <form>
+                            <label>Find By City</label>
+                            <input type="text"/>
+                            <button type="submit" id="search" class="button">Go!</button>
+                        </form>
+                    </div>
                 </div>
-              </div>
+            </div>
 
+            <div class="cell">
+                <div class="card box2">
+                    <div class="card-section">
+                        <h4>Favorites</h4>
+                        <ul></ul>
+                    </div>
+                </div>
             </div>
         </div>
-
+        
         <div>
             <h2>Showing fuel sources for: <span id="search-term"></span></h2>
             <!-- use next div for list of fuel sources -->
