@@ -73,21 +73,18 @@
 .img1,
 .img2 {
     border-radius: 10px;
+    width: 150px;
+    height: 150px;
 }
 
 /* .card1,
 .card2 {
     padding: 20px;
 } */
-.grid-x {
-  justify-content: flex-start;
+.search-form-container {
+    flex-direction: column;
+    justify-content: flex-start;
 }
-
-.grid-x.grid-margin-x {
-  flex-direction: column;
-}
-
-
 
 footer {
     padding: 60px 20px 20px 20px;
