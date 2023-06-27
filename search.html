@@ -24,10 +24,10 @@
     </header>
 
     <main>
-        <div class="grid-x grid-margin-x small-up-2 medium-up-3 search-form-container">
+        <div class="grid-x grid-margin-x ">
 
-            <div class="cell">
-                <div class="card box1">
+            <div class="cell small-4 flex-container flex-dir-column">
+                <div class="card box1 callout primary flex-child-auto">
                     <div class="card-section">
                         <h4>Search for Alternative Fuel Sources!</h4>
                         <form>
@@ -36,22 +36,19 @@
                         </form>
                     </div>
                 </div>
-            </div>
-
-            <div class="cell">
-                <div class="card box2">
+                <div class="card box2 callout primary flex-child-auto">
                     <div class="card-section">
                         <h4>Favorites</h4>
                         <ul></ul>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <div>
-            <h2>Showing fuel sources for: <span id="search-term"></span></h2>
-            <!-- use next div for list of fuel sources -->
-            <div id="places-container" class="list-places"></div>
+            <div class="cell small-4 align-self-top">
+                <h2>Showing fuel sources for: <span id="search-term"></span></h2>
+                <!-- use next div for list of fuel sources -->
+                <div id="places-container" class="list-places"></div>
+            </div>
+
         </div>
 
     </main>
