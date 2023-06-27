@@ -88,7 +88,19 @@
 }
 
 
+.box1 {
+  margin-top: 55px;
+  margin-bottom: 20px; /* Adjust topbox position */
+}
 
+.box2 {
+  margin-top: 5px; /* Adjust bottom box position */
+}
+
+
+.cell {
+    padding-left: 20px; /* Adjust both box position */
+}
 footer {
     padding: 60px 20px 20px 20px;
 }
