@@ -79,6 +79,15 @@
 .card2 {
     padding: 20px;
 } */
+.grid-x {
+  justify-content: flex-start;
+}
+
+.grid-x.grid-margin-x {
+  flex-direction: column;
+}
+
+
 
 footer {
     padding: 60px 20px 20px 20px;
