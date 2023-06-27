@@ -98,3 +98,11 @@
 footer {
     padding: 60px 20px 20px 20px;
 }
+
+.btn {
+    font-size: 1.3rem;
+    padding: 6px 5px;
+    width: 100%;
+    display: block;
+    margin: 5px 0;
+  }
