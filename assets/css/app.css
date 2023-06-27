@@ -10,7 +10,6 @@
     font-family: 'Open Sans', sans-serif;
     color: var(--lightBlueGrey);
     background-color: var(--darkBlueGrey);
-    /* font-family: 'Ubuntu', sans-serif; */
 }
 
 .title-bar,
@@ -51,7 +50,6 @@
 .card1,
 .card2 {
     background-color: var(--blueGrey);
-    /* border: 2px solid var(--blueGrey); */
     padding: 20px;
 }
 
@@ -73,13 +71,38 @@
 .img1,
 .img2 {
     border-radius: 10px;
+    width: 200px;
+    height: 200px;
 }
 
-/* .card1,
-.card2 {
-    padding: 20px;
-} */
+
+.search-form-container {
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.box1 {
+  margin-top: 55px;
+  margin-bottom: 20px; /* Adjust topbox position */
+}
+
+.box2 {
+  margin-top: 5px; /* Adjust bottom box position */
+}
+
+/* we should avoid using Foundation's built-in classes as classes for our custom styling - this .cell class will apply to every grid element in the entire app*/
+.cell {
+    padding-left: 20px; /* Adjust both box position */
+}
 
 footer {
     padding: 60px 20px 20px 20px;
 }
+
+.btn {
+    font-size: 1.3rem;
+    padding: 6px 5px;
+    width: 100%;
+    display: block;
+    margin: 5px 0;
+  }

@@ -11,34 +11,44 @@
 
 <body>
     <header>
-
+        <!-- <h1>Welcome to the PowerGrid</h1> -->
+        <div class="title-bar">
+            <div class="title-bar-left">
+              <button class="menu-icon" type="button"></button>
+              <span class="title-bar-title h3">PowerGrid</span>
+            </div>
+            <div class="title-bar-right">
+              <button class="menu-icon" type="button"></button>
+            </div>
+          </div>
     </header>
 
     <main>
-        <div>
+        <div class="grid-x grid-margin-x ">
 
-            <div>
-                <h3>Find An Alternative Fuel Source!</h3>
-                <form>
-                <label>Find By City</label>
-                <input type="text"/>
-                <button type="submit" id="search" class="btn">Go!</button>
-                </form>
-            </div>
-
-            <div>
-                <h3 class="card-header text-uppercase">Favorites</h3>
-                <div>
-                <!-- add favorites content -->
+            <div class="cell small-4 flex-container flex-dir-column">
+                <div class="card box1 callout primary flex-child-auto">
+                    <div class="card-section">
+                        <h4>Search for Alternative Fuel Sources!</h4>
+                        <form>
+                            <input type="text"/>
+                            <button type="submit" id="search" class="btn button">Go!</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="card box2 callout primary flex-child-auto">
+                    <div class="card-section">
+                        <h4>Favorites</h4>
+                        <ul></ul>
+                    </div>
                 </div>
             </div>
+            <div class="cell small-4 align-self-top">
+                <h2 class="box1">Showing fuel sources for <span id="search-term"></span></h2>
+                <!-- use next div for list of fuel sources -->
+                <div id="places-container" class="list-places"></div>
+            </div>
 
-        </div>
-
-        <div>
-            <h2>Showing fuel sources for: <span id="search-term"></span></h2>
-            <!-- use next div for list of fuel sources -->
-            <div id="places-container" class="list-places"></div>
         </div>
 
     </main>
