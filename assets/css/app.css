@@ -9,7 +9,7 @@
 * {
     font-family: 'Open Sans', sans-serif;
     color: var(--lightBlueGrey);
-    background-color: var(--darkBlueGrey);
+    /* background-color: var(--darkBlueGrey); */
 }
 
 .title-bar,
@@ -106,3 +106,10 @@ footer {
     display: block;
     margin: 5px 0;
   }
+
+/* map styling only */
+#map {
+    background: rgba(0,0,0,0.5);;
+    height: 500px;
+    width: 500px;
+}
