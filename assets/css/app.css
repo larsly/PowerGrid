@@ -8,16 +8,6 @@
 
 * {
     font-family: 'Open Sans', sans-serif;
-    color: var(--lightBlueGrey);
-    background-color: var(--darkBlueGrey);
-}
-
-.title-bar,
-.title-bar-title,
-.title-bar-left,
-.title-bar-right,
-.menu-icon {
-    background-color: black;
 }
 
 .title-bar {
@@ -37,8 +27,6 @@
 }
 
 .powerUp {
-    background-color: var(--yellow);
-    color: var(--darkBlueGrey);
     font-weight: bold;
     border-radius: 10px;
 }
@@ -49,15 +37,7 @@
 
 .card1,
 .card2 {
-    background-color: var(--blueGrey);
     padding: 20px;
-}
-
-.card1,
-.card2,
-.card1-text,
-.card2-text {
-    background-color: var(--blueGrey);
 }
 
 .card1 {
@@ -106,3 +86,9 @@ footer {
     display: block;
     margin: 5px 0;
   }
+
+/* map styling only */
+#map {
+    height: 500px;
+    width: 500px;
+}
