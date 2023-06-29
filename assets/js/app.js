@@ -1,9 +1,9 @@
 $(document).foundation()
 
 //fetch API query for charging stations
-/*
-var evQuery = "https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json?api_key=YuxEi5gp0aq25h7DrlIY1TjV3LyXZI9dxAVRt5oX&location=1617+Cole+Blvd+Golden+CO&fuel_type=ELEC&access=public&radius=15.0&ev_network=all&limit=5"
-*/
+
+// var evQuery = "https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json?api_key=YuxEi5gp0aq25h7DrlIY1TjV3LyXZI9dxAVRt5oX&location=1617+Cole+Blvd+Golden+CO&fuel_type=ELEC&access=public&radius=15.0&ev_network=all&limit=5"
+
 /* params to use:
     access=public
     fuel_type=ELEC
@@ -36,16 +36,32 @@ for (var i = 0; i < btnEls.length; i++) {
   }
 */
 
-//just here so that we can look in the console and see what details we can access
-/*
-fetch(evQuery)
-  .then(function(response) {
-    return response.json();
-  })
-  .then(function(data) {
-    console.log(data);
-  })
-*/
+
+  function getApi() {
+    var evQuery = "https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json?api_key=YuxEi5gp0aq25h7DrlIY1TjV3LyXZI9dxAVRt5oX&location=23225&fuel_type=ELEC&access=public&radius=15.0&ev_network=all&limit=5"
+  
+    fetch(evQuery)
+          .then(function(response) {
+            return response.json();
+          })
+          .then(function(data) {
+            console.log(data.fuel_stations)
+            var dataSet = data.fuel_stations;
+            // var dataArr = [];
+            // dataArr.push(data);
+            // console.log(dataArr);
+            for (i = 0; i < dataSet.length; i++) {
+              console.log(dataSet[i]);
+              console.log(dataSet[i].station_name);
+              console.log(dataSet[i].street_address);
+              console.log("latitude: " + dataSet[i].latitude);
+              console.log("longitude: " + dataSet[i].longitude);
+            }
+          })
+  };
+  
+  getApi();
+
 //MAP
 
   var map;
