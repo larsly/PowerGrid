@@ -36,6 +36,7 @@ for (var i = 0; i < btnEls.length; i++) {
   }
 */
 
+var stationContainer = document.getElementById("#places-container");
 
   function getApi() {
     var evQuery = "https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json?api_key=YuxEi5gp0aq25h7DrlIY1TjV3LyXZI9dxAVRt5oX&location=23225&fuel_type=ELEC&access=public&radius=15.0&ev_network=all&limit=5"
@@ -56,6 +57,14 @@ for (var i = 0; i < btnEls.length; i++) {
               console.log(dataSet[i].street_address);
               console.log("latitude: " + dataSet[i].latitude);
               console.log("longitude: " + dataSet[i].longitude);
+              // var stationName = document.createElement("h3");
+              // var stationAddress = document.createElement("p"); 
+      
+              // stationName.textContent = dataSet[i].fuel_stations.station_name;
+              // stationAddress.textContent = dataSet[i].fuel_stations.street_address;
+      
+              // stationContainer.appendChild(stationName);
+              // stationContainer.appendChild(stationAddress);
             }
           })
   };
