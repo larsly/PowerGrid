@@ -42,7 +42,7 @@ var stateInput = document.querySelector("#stateInput");
 var userInputBtn = document.querySelector("#userInputBtn");
 var setInfoBtn = document.querySelector("#setInfoBtn");
 var infoList = document.querySelector("#infoList");
-var stationList = document.getElementById("#places-container");
+var stationList = document.getElementById("places-container");
 
 // grabs user input on click
 userInputBtn.addEventListener("click", function(event) {
@@ -86,19 +86,19 @@ userInputBtn.addEventListener("click", function(event) {
               console.log("latitude: " + dataSet[i].latitude);
               console.log("longitude: " + dataSet[i].longitude);
               // this next bit is where things get weird - uncomment it to see
-              /*
+              
               var stationListItem = document.createElement("li");
               var stationName = document.createElement("h3");
               var stationAddress = document.createElement("p"); 
       
-              stationName.textContent = this.dataSet[i].fuel_stations.station_name;
-              stationAddress.textContent = this.dataSet[i].fuel_stations.street_address;
+              stationName.textContent = dataSet[i].station_name;
+              stationAddress.textContent = dataSet[i].street_address;
       
               stationListItem.appendChild(stationName);
               stationListItem.appendChild(stationAddress);
 
-              stationContainer.appendChild(stationListItem);
-              */
+              stationList.appendChild(stationListItem);
+              
             }
           })
   };
