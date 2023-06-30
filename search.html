@@ -47,17 +47,29 @@
                 <h2 class="box1">Showing fuel sources for <span id="search-term"></span></h2>
                 <!-- use next div for list of fuel sources -->
                 <div id="places-container" class="list-places"></div>
+                 <!-- div for Google Map -->
+            <div id="map" style="height: 400px; width: 100%;"></div>
+
             </div>
-
         </div>
-
     </main>
+
+    <script>
+        var map;
+        function initMap() {
+          map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: -34.397, lng: 150.644},
+            zoom: 8
+          });
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMDyx_M_FyF-wsiuciGYChfSXDZbKCs0g&callback=initMap"
+    async defer></script>
     
-
-
     <script src="./assets/js/vendor/jquery.js"></script>
     <script src="./assets/js/vendor/what-input.js"></script>
     <script src="./assets/js/vendor/foundation.js"></script>
     <script src="./assets/js/app.js"></script>
-</body>
+    </body>
+    
 </html>
