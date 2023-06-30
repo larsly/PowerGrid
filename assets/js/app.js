@@ -36,6 +36,38 @@ for (var i = 0; i < btnEls.length; i++) {
   }
 */
 
+var cityInput = document.querySelector("#cityInput");
+var stateInput = document.querySelector("#stateInput");
+var userInputBtn = document.querySelector("#userInputBtn");
+var setInfoBtn = document.querySelector("#setInfoBtn");
+var infoList = document.querySelector("#infoList");
+
+// grabs user input on click
+userInputBtn.addEventListener("click", function(event) {
+    event.preventDefault();
+    var city = document.querySelector("#cityInput").value;
+    var state = document.querySelector("#stateInput").value;
+
+    console.log("I've been clicked! ");
+
+    localStorage.setItem("city", city);
+    localStorage.setItem("state", state);
+    
+    cityInput.value = " "; // clears input for next use
+    stateInput.value = " ";
+    concatInfo();
+});
+
+// concatenates info saved above into a form the API url can use
+function concatInfo() {
+  var chosenCity = localStorage.getItem("city");
+  var chosenState = localStorage.getItem("state");
+  var location = chosenCity + "+" + chosenState;
+  var evQuery = `https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json?api_key=YuxEi5gp0aq25h7DrlIY1TjV3LyXZI9dxAVRt5oX&location=${location}&fuel_type=ELEC&access=public&radius=15.0&ev_network=all&limit=5`
+
+  // console.log(evQuery);
+}
+
 var stationContainer = document.getElementById("#places-container");
 
   function getApi() {
