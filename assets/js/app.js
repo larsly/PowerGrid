@@ -77,7 +77,7 @@ userInputBtn.addEventListener("click", function(event) {
             // shows in console that we have an array of five objects
             console.log(data.fuel_stations) 
             var dataSet = data.fuel_stations;
-
+            var stationData = [];
             for (i = 0; i < dataSet.length; i++) {
               // all of these console logs work, the info is there
               console.log(dataSet[i]);
@@ -98,7 +98,13 @@ userInputBtn.addEventListener("click", function(event) {
               stationListItem.appendChild(stationAddress);
 
               stationList.appendChild(stationListItem);
-              
+              stationData.push({
+                name: dataSet[i].station_name,
+                latitude: dataSet[i].latitude,
+                longitude: dataSet[i].longitude,
+                zindex: i
+              });
+              setMarkers(map, stationData)
             }
           })
   };
@@ -111,20 +117,26 @@ userInputBtn.addEventListener("click", function(event) {
       center: {lat: -34.397, lng: 150.644},
       zoom: 8
     });
-    setMarkers(map);
+    setMarkers(map, []);
+
   }
 
 // Data for the markers consisting of a name, a LatLng and a zIndex for the
 // order in which these markers should display on top of each other.
-const beaches = [
-["Bondi Beach", -33.890542, 151.274856, 4],
-["Coogee Beach", -33.923036, 151.259052, 5],
-["Cronulla Beach", -34.028249, 151.157507, 3],
-["Manly Beach", -33.80010128657071, 151.28747820854187, 2],
-["Maroubra Beach", -33.950198, 151.259302, 1],
-];
+// const beaches = [
+// ["Bondi Beach", -33.890542, 151.274856, 4],
+// ["Coogee Beach", -33.923036, 151.259052, 5],
+// ["Cronulla Beach", -34.028249, 151.157507, 3],
+// ["Manly Beach", -33.80010128657071, 151.28747820854187, 2],
+// ["Maroubra Beach", -33.950198, 151.259302, 1],
+// ];
 
-function setMarkers(map) {
+function setMarkers(map, markers) {
+  if (markers.length === 0 ) return;
+  map.setCenter({
+    lat: markers[0].latitude,
+    lng: markers[0].longitude,
+  });
 // Adds markers to the map.
 // Marker sizes are expressed as a Size of X,Y where the origin of the image
 // (0,0) is located in the top left of the image.
@@ -147,16 +159,16 @@ coords: [1, 1, 1, 20, 18, 20, 18, 1],
 type: "poly",
 };
 
-for (let i = 0; i < beaches.length; i++) {
-    const beach = beaches[i];
-
+for (let i = 0; i < markers.length; i++) {
+  const placeMarker = markers[i];
+  
     new google.maps.Marker({
-        position: { lat: beach[1], lng: beach[2] },
+        position: { lat: placeMarker.latitude, lng: placeMarker.longitude },
         map,
         icon: image,
         shape: shape,
-        title: beach[0],
-        zIndex: beach[3],
+        title: placeMarker.name,
+        zIndex: placeMarker.zindex,
       });
     }
   }
