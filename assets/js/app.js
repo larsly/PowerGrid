@@ -50,6 +50,8 @@ userInputBtn.addEventListener("click", function(event) {
     event.preventDefault();
     var city = document.querySelector("#cityInput").value;
     var state = document.querySelector("#stateInput").value;
+    
+    // we need something here that will clear previous search items from page
 
     console.log("I've been clicked! ");
 
@@ -72,25 +74,23 @@ favBtn.addEventListener("click", function(event) {
     var chosenState = localStorage.getItem("state");
     // grabs stored input and concatenates it into a form the API url can use
     var location = chosenCity + "+" + chosenState; 
-    var evQuery = `https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json?api_key=YuxEi5gp0aq25h7DrlIY1TjV3LyXZI9dxAVRt5oX&location=${location}&fuel_type=ELEC&access=public&radius=15.0&ev_network=all&limit=5`
+    var evQuery = `https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json?api_key=YuxEi5gp0aq25h7DrlIY1TjV3LyXZI9dxAVRt5oX&location=${location}&fuel_type=ELEC&access=public&cards_accepted=A, D, M, V&radius=15.0&ev_network=all&limit=5`
   
     fetch(evQuery)
           .then(function(response) {
             return response.json();
           })
           .then(function(data) {
-            // shows in console that we have an array of five objects
+            
             console.log(data.fuel_stations) 
             var dataSet = data.fuel_stations;
             var stationData = [];
-            for (i = 0; i < dataSet.length; i++) {
-              // all of these console logs work, the info is there
+            for (i = 0; i < dataSet.length; i++) {   
               console.log(dataSet[i]);
               console.log(dataSet[i].station_name);
               console.log(dataSet[i].street_address);
               console.log("latitude: " + dataSet[i].latitude);
               console.log("longitude: " + dataSet[i].longitude);
-              // this next bit is where things get weird - uncomment it to see
               
               var stationListItem = document.createElement("li");
               var stationName = document.createElement("h3");
