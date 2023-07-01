@@ -43,6 +43,7 @@ var userInputBtn = document.querySelector("#userInputBtn");
 var setInfoBtn = document.querySelector("#setInfoBtn");
 var infoList = document.querySelector("#infoList");
 var stationList = document.getElementById("places-container");
+var favBtn = document.getElementById("favBtn");
 
 // grabs user input on click
 userInputBtn.addEventListener("click", function(event) {
@@ -59,6 +60,10 @@ userInputBtn.addEventListener("click", function(event) {
     stateInput.value = " ";
     
     getApi(); // calls next function
+});
+
+favBtn.addEventListener("click", function(event) {
+  // print location in favorites list
 });
 
 
