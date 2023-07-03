@@ -48,6 +48,7 @@ var favBtn = document.getElementById("favBtn");
 // grabs user input on click
 userInputBtn.addEventListener("click", function(event) {
     event.preventDefault();
+    stationList.innerHTML = [];
     var city = document.querySelector("#cityInput").value;
     var state = document.querySelector("#stateInput").value;
 
