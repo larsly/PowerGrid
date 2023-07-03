@@ -7,6 +7,8 @@
     <title>PowerGrid</title>
     <link rel="stylesheet" href="./assets/css/foundation.css">
     <link rel="stylesheet" href="./assets/css/app.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 
 <body>
@@ -14,11 +16,10 @@
         <!-- <h1>Welcome to the PowerGrid</h1> -->
         <div class="title-bar">
             <div class="title-bar-left">
-              <button class="menu-icon" type="button"></button>
               <span class="title-bar-title h3">PowerGrid</span>
             </div>
             <div class="title-bar-right">
-              <button class="menu-icon" type="button"></button>
+              <a href="./index.html" class="button powerUp medium">Go Back</a>
             </div>
           </div>
     </header>
@@ -31,8 +32,13 @@
                     <div class="card-section">
                         <h4>Search for Alternative Fuel Sources!</h4>
                         <form>
-                            <input type="text"/>
-                            <button type="submit" id="search" class="btn button">Go!</button>
+                            <!-- <input type="text"/> -->
+                            <label for="city">City</label>
+                            <input type="text" name="city" id="cityInput">
+                            <label for="state">State</label>
+                            <input type="text" name="state" id="stateInput">
+                            <button id="userInputBtn" class="btn button">Go!</button>
+                            <button id="favBtn" class="btn button">Favorite</button>
                         </form>
                     </div>
                 </div>
@@ -46,18 +52,31 @@
             <div class="cell small-4 align-self-top">
                 <h2 class="box1">Showing fuel sources for <span id="search-term"></span></h2>
                 <!-- use next div for list of fuel sources -->
-                <div id="places-container" class="list-places"></div>
+                <div>
+                    <ul id="places-container" class="list-places"></ul>
+                </div>
             </div>
-
         </div>
 
+        <div class="reveal" id="exampleModal1" data-reveal>
+            <h1>Map</h1>
+            <p class="lead">Your nearby stations.</p>
+            <div id="map"></div>
+            <button class="close-button" data-close aria-label="Close modal" type="button">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        
+          <p><button class="button" data-open="exampleModal1">See it in the map!</button></p>
     </main>
     
-
-
+    
     <script src="./assets/js/vendor/jquery.js"></script>
     <script src="./assets/js/vendor/what-input.js"></script>
     <script src="./assets/js/vendor/foundation.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMDyx_M_FyF-wsiuciGYChfSXDZbKCs0g&callback=initMap"
+    async defer></script>
     <script src="./assets/js/app.js"></script>
-</body>
+    </body>
+    
 </html>
