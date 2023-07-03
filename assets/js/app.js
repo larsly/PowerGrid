@@ -52,6 +52,7 @@ userInputBtn.addEventListener("click", function(event) {
     var state = document.querySelector("#stateInput").value;
     
     // we need something here that will clear previous search items from page
+    
 
     console.log("I've been clicked! ");
 
@@ -81,7 +82,7 @@ favBtn.addEventListener("click", function(event) {
             return response.json();
           })
           .then(function(data) {
-            
+            stationList.innerHTML = ""
             console.log(data.fuel_stations) 
             var dataSet = data.fuel_stations;
             var stationData = [];
