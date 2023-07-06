@@ -20,6 +20,11 @@
     padding-left: 10px;
 }
 
+#extras {
+    color: white;
+    font-weight: bold;
+}
+
 .heroImg {
     width: 100%;
 }
@@ -137,3 +142,7 @@ footer {
     width: 500px;
 }
 
+#testingStuff {
+    border: 3px solid black;
+    height: 100%;
+}
