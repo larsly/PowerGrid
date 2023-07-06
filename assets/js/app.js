@@ -44,11 +44,11 @@ var setInfoBtn = document.querySelector("#setInfoBtn");
 var infoList = document.querySelector("#infoList");
 var stationList = document.getElementById("places-container");
 var favBtn = document.getElementById("favBtn");
+var favList = document.getElementById("favorites-container");
 
 // grabs user input on click
 userInputBtn.addEventListener("click", function(event) {
     event.preventDefault();
-    stationList.innerHTML = [];
     var city = document.querySelector("#cityInput").value;
     var state = document.querySelector("#stateInput").value;
     
@@ -66,8 +66,45 @@ userInputBtn.addEventListener("click", function(event) {
     getApi(); // calls next function
 });
 
+// print location in favorites list
 favBtn.addEventListener("click", function(event) {
-  // print location in favorites list
+  event.preventDefault();
+  console.log("I've been clicked");
+
+  var city = document.querySelector("#cityInput").value;
+  var state = document.querySelector("#stateInput").value;
+
+  //get favorites list from local storage
+
+  var favorites = JSON.parse(localStorage.getItem("favorites"));
+
+  if (favorites == null) {
+    favorites = [];
+  }
+
+  // append to favorites list
+
+  favorites.push({
+    "city": city,
+    "state": state,
+  });
+
+  for (i = 0; i < favorites.length; i++){
+  var favListItem = document.createElement("li");
+  var cityItem = document.createElement("h3");
+  var stateItem = document.createElement("h3"); 
+      
+  cityItem.innerText = favorites[i].city;
+  stateItem.innerText = favorites[i].state;
+      
+  favListItem.appendChild(cityItem);
+  favListItem.appendChild(stateItem);
+
+  favList.appendChild(favListItem);
+  }
+
+  // save favorites list to local storage
+  localStorage.setItem("favorites", JSON.stringify(favorites));
 });
 
 
