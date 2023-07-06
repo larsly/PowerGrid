@@ -101,7 +101,7 @@ favBtn.addEventListener("click", function(event) {
       
               stationListItem.appendChild(stationName);
               stationListItem.appendChild(stationAddress);
-
+              stationListItem.classList.add("stationListItem");
               stationList.appendChild(stationListItem);
               stationData.push({
                 name: dataSet[i].station_name,
