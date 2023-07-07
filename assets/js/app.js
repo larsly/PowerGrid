@@ -44,11 +44,11 @@ var setInfoBtn = document.querySelector("#setInfoBtn");
 var infoList = document.querySelector("#infoList");
 var stationList = document.getElementById("places-container");
 var favBtn = document.getElementById("favBtn");
+var favList = document.getElementById("favorites-container");
 
 // grabs user input on click
 userInputBtn.addEventListener("click", function(event) {
     event.preventDefault();
-    stationList.innerHTML = [];
     var city = document.querySelector("#cityInput").value;
     var state = document.querySelector("#stateInput").value;
     
@@ -57,25 +57,104 @@ userInputBtn.addEventListener("click", function(event) {
 
     console.log("I've been clicked! ");
 
-    localStorage.setItem("city", city);
-    localStorage.setItem("state", state);
+    // localStorage.setItem("city", city);
+    // localStorage.setItem("state", state);
     
-    cityInput.value = " "; // clears input for next use
-    stateInput.value = " ";
+    // cityInput.value = " "; // clears input for next use
+    // stateInput.value = " ";
     
-    getApi(); // calls next function
+    getApi(city, state); // calls next function
 });
 
+// print location in favorites list
 favBtn.addEventListener("click", function(event) {
-  // print location in favorites list
+  event.preventDefault();
+  console.log("I've been clicked");
+
+  var city = document.querySelector("#cityInput").value;
+  var state = document.querySelector("#stateInput").value;
+
+  //get favorites list from local storage
+
+  var favorites = JSON.parse(localStorage.getItem("favorites"));
+
+  if (favorites == null) {
+    favorites = [];
+  }
+
+  // append to favorites list
+
+  favorites.push({
+    "city": city,
+    "state": state,
+  });
+
+  // save favorites list to local storage
+  localStorage.setItem("favorites", JSON.stringify(favorites));
+  renderFavorites();
 });
 
+function renderFavorites(){
+  var favorites = JSON.parse(localStorage.getItem("favorites"));
 
-  function getApi() {
-    var chosenCity = localStorage.getItem("city");
-    var chosenState = localStorage.getItem("state");
+  if (favorites == null) {
+    favorites = [];
+  }
+
+  favList.innerHTML = [];
+
+  for (i = 0; i < favorites.length; i++){
+    var favListItem = document.createElement("li");
+    var cityItem = document.createElement("h3");
+    var stateItem = document.createElement("h3"); 
+        
+    cityItem.innerText = favorites[i].city;
+    stateItem.innerText = favorites[i].state;
+        
+    favListItem.appendChild(cityItem);
+    favListItem.appendChild(stateItem);
+    
+    favList.appendChild(favListItem);
+  
+    localStorage.setItem("city", favorites[i].city);
+    localStorage.setItem("state", favorites[i].state);
+  
+    // adds go button to fav list item
+    var goButton = document.createElement("button");
+    goButton.innerHTML = "Go!";
+    favListItem.appendChild(goButton);
+    goButton.classList.add("button", "go-button");
+  
+    // go button event listener
+    goButton.addEventListener("click", function(event){
+    var localFavorites = JSON.parse(localStorage.getItem("favorites"));
+    var index = Array.from(this.parentNode.parentNode.childNodes).indexOf(this.parentNode);
+    getApi(localFavorites[index].city, localFavorites[index].state);
+    });
+  
+    // adds delete button to fav list item
+    var deleteButton = document.createElement("button");
+    deleteButton.innerHTML = "Delete";
+    favListItem.appendChild(deleteButton);
+    deleteButton.classList.add("button", "delete-button");
+  
+    // delete button event listener
+    deleteButton.addEventListener("click", function(event){
+    var localFavorites = JSON.parse(localStorage.getItem("favorites"));
+    var index = Array.from(this.parentNode.parentNode.childNodes).indexOf(this.parentNode);
+    localFavorites.splice(index, 1);
+    console.log(localFavorites);
+    localStorage.setItem("favorites", JSON.stringify(localFavorites));
+    renderFavorites();
+    })};
+}
+
+
+  function getApi(city, state) {
+    // var chosenCity = localStorage.getItem("city");
+    // var chosenState = localStorage.getItem("state");
     // grabs stored input and concatenates it into a form the API url can use
-    var location = chosenCity + "+" + chosenState; 
+    var location = city + "+" + state; 
     var evQuery = `https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json?api_key=YuxEi5gp0aq25h7DrlIY1TjV3LyXZI9dxAVRt5oX&location=${location}&fuel_type=ELEC&access=public&cards_accepted=A, D, M, V&radius=15.0&ev_network=all&limit=5`
   
     fetch(evQuery)
@@ -181,3 +260,4 @@ for (let i = 0; i < markers.length; i++) {
   }
 
 window.initMap = initMap;
+renderFavorites();
