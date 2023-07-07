@@ -92,11 +92,18 @@ footer {
     border: 3px solid var(--blueGrey);
     border-radius: 10px;
     background-color: var(--teal);
+    margin-top: 10px; /* Add this line to adjust the margin */
+    width: 100%; /* Add this line to make the button span the width */
 }
 
-.mapBtn {
-    margin: 30px 0 0 45px;
-    box-shadow: 3px 3px 5px var(--darkGrey);
+.backBtn { 
+    font-weight: bold;
+    border: 3px solid var(--blueGrey);
+    border-radius: 10px;
+    background-color: var(--teal);
+    margin-top: 10px;
+    width: auto; /* Change the width to auto */
+    display: inline-block; /* Add this line to make the button take the necessary width */
 }
 
 .searchForm,
