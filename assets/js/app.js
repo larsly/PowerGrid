@@ -74,6 +74,7 @@ favBtn.addEventListener("click", function(event) {
   var city = document.querySelector("#cityInput").value;
   var state = document.querySelector("#stateInput").value;
 
+  if (city.trim().length === 0 || state.trim().length === 0) return;
   //get favorites list from local storage
 
   var favorites = JSON.parse(localStorage.getItem("favorites"));
