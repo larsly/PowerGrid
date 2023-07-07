@@ -101,6 +101,18 @@ favBtn.addEventListener("click", function(event) {
   favListItem.appendChild(stateItem);
 
   favList.appendChild(favListItem);
+
+  // adds go button to fav list item
+  var goButton = document.createElement("button");
+  goButton.innerHTML = "Go!";
+  favListItem.appendChild(goButton);
+  goButton.classList.add("button", "go-button");
+
+  // adds go button to fav list item
+  var deleteButton = document.createElement("button");
+  deleteButton.innerHTML = "Delete";
+  favListItem.appendChild(deleteButton);
+  deleteButton.classList.add("button", "delete-button");
   }
 
   // save favorites list to local storage
