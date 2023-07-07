@@ -102,8 +102,8 @@ favBtn.addEventListener("click", function(event) {
 
   favList.appendChild(favListItem);
 
-  localStorage.setItem("city", favorites.city);
-  localStorage.setItem("state", favorites.state);
+  // localStorage.setItem("city", favorites.city);
+  // localStorage.setItem("state", favorites.state);
 
   // adds go button to fav list item
   var goButton = document.createElement("button");
@@ -111,9 +111,9 @@ favBtn.addEventListener("click", function(event) {
   favListItem.appendChild(goButton);
   goButton.classList.add("button", "go-button");
 
-  goButton.addEventListener("click", function(event){
-    getApi();
-  });
+  // goButton.addEventListener("click", function(event){
+  //   getApi();
+  // });
 
   // adds delete button to fav list item
   var deleteButton = document.createElement("button");
