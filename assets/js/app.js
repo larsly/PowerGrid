@@ -45,6 +45,7 @@ var infoList = document.querySelector("#infoList");
 var stationList = document.getElementById("places-container");
 var favBtn = document.getElementById("favBtn");
 var favList = document.getElementById("favorites-container");
+var alertArea = document.querySelector(".alertArea");
 
 // grabs user input on click
 userInputBtn.addEventListener("click", function(event) {
@@ -62,8 +63,14 @@ userInputBtn.addEventListener("click", function(event) {
     
     // cityInput.value = " "; // clears input for next use
     // stateInput.value = " ";
+    if(city === "" || state === "") {
+      alertArea.innerText = "Please enter all fields!";
+      return;
+    } else {
+      alertArea.innerText = "";
+      getApi(city, state); // calls next function
+    }
     
-    getApi(city, state); // calls next function
 });
 
 // print location in favorites list
@@ -106,14 +113,16 @@ function renderFavorites(){
 
   for (i = 0; i < favorites.length; i++){
     var favListItem = document.createElement("li");
-    var cityItem = document.createElement("h3");
-    var stateItem = document.createElement("h3"); 
-        
-    cityItem.innerText = favorites[i].city;
-    stateItem.innerText = favorites[i].state;
-        
-    favListItem.appendChild(cityItem);
-    favListItem.appendChild(stateItem);
+    // var cityItem = document.createElement("h3");
+    // var stateItem = document.createElement("h3"); 
+    var cityState = document.createElement("h3");
+    
+    cityState.innerText = (favorites[i].city + ", " + favorites[i].state);
+    // cityItem.innerText = favorites[i].city;
+    // stateItem.innerText = favorites[i].state;
+    favListItem.appendChild(cityState); 
+    // favListItem.appendChild(cityItem);
+    // favListItem.appendChild(stateItem);
     
     favList.appendChild(favListItem);
   
@@ -163,7 +172,7 @@ function renderFavorites(){
             return response.json();
           })
           .then(function(data) {
-            stationList.innerHTML = ""
+            stationList.innerHTML = "";
             console.log(data.fuel_stations) 
             var dataSet = data.fuel_stations;
             var stationData = [];

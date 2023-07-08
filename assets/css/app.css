@@ -5,10 +5,12 @@
     --blueGrey: rgb(108, 154, 168);
     --teal: rgb(8, 130, 139);
     --darkTeal: rgb(2, 84, 94);
+    --alert: rgb(255, 0, 98);
 }
 
 * {
     font-family: 'Ubuntu', sans-serif !important;
+    list-style-type: none;
 }
 
 /* index.html styling */
@@ -75,7 +77,7 @@ footer {
     margin-top: 70px;
 }
 
-.btn {
+#userInputBtn {
     font-size: 1.3rem;
     padding: 6px 5px;
     width: 100%;
@@ -87,13 +89,20 @@ footer {
 .backBtn,
 #userInputBtn,
 #favBtn,
-.mapBtn {
+.mapBtn,
+.delete-button,
+.go-button {
     font-weight: bold;
     border: 3px solid var(--blueGrey);
     border-radius: 10px;
     background-color: var(--teal);
-    margin-top: 10px; /* Add this line to adjust the margin */
-    width: 100%; /* Add this line to make the button span the width */
+    /* margin-top: 10px; Add this line to adjust the margin */
+    /* width: 100%; Add this line to make the button span the width */
+}
+
+.alertArea {
+    font-weight: bold;
+    color: var(--alert);
 }
 
 .backBtn { 
@@ -101,7 +110,7 @@ footer {
     border: 3px solid var(--blueGrey);
     border-radius: 10px;
     background-color: var(--teal);
-    margin-top: 10px;
+    margin: 10px 10px 0 0;
     width: auto; /* Change the width to auto */
     display: inline-block; /* Add this line to make the button take the necessary width */
 }
