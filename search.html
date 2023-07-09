@@ -14,10 +14,9 @@
 
 <body>
     <header>
-        <!-- <h1>Welcome to the PowerGrid</h1> -->
         <div class="title-bar">
             <div class="title-bar-left">
-              <a href="index.html" class="title-bar-title h3">PowerGrid</a> <!--adding front page link into the powergrid title-->
+              <a href="index.html" class="title-bar-title h3">PowerGrid</a>
             </div> 
         </div>
             <div class="title-bar-right">
@@ -36,10 +35,8 @@
               <span aria-hidden="true">&times;</span>
             </button>
         </div>
-        <!-- modal open button -->
-
-        
-        <div id="testingStuff" class="">
+        <!-- search box -->
+        <div id="boxContainer" class="">
             <div class="grid-x grid-margin-x gridBox">
                 <div class="cell medium-4 flex-container flex-dir-column searchBox">
                   <div class="cell searchForm">
@@ -49,17 +46,22 @@
                       <label for="state">State</label>
                       <input type="text" name="state" id="stateInput">
                       <button id="userInputBtn" class="btn button">Go!</button>
-                      <button id="favBtn" class="btn button">Favorite</button>
-                      <button class="button mapBtn" data-open="exampleModal1">See It In The Map!</button>
+                      
                   </div>
                   <div class="cell favorites">
                     <h4 class=" title">Favorites</h4>
                     <ul id="favorites-container"></ul>
                   </div>
                 </div>
+                <!-- results -->
                 <div class="cell medium-6 resultsBox align-center">
                   <div class="cell">
-                    <h2 class="title">Showing fuel sources for: </h2>
+
+                    <h2 class="title">Showing fuel sources for</h2>
+                    <button id="favBtn" class="btn button">Favorite</button>
+                    <button class="button mapBtn" data-open="exampleModal1">See It In The Map!</button>
+                    <div class="alertArea"></div>
+            
                     <ul id="places-container" class="list-places cell small-6"></ul>
                   </div>
                 </div>
