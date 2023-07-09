@@ -34,7 +34,7 @@ favBtn.addEventListener("click", function(event) {
 
   var city = document.querySelector("#cityInput").value;
   var state = document.querySelector("#stateInput").value;
-
+  // if empty nothing favorites
   if (city.trim().length === 0 || state.trim().length === 0) return;
   //get favorites list from local storage
 
@@ -43,6 +43,7 @@ favBtn.addEventListener("click", function(event) {
   if (favorites == null) {
     favorites = [];
   }
+
   // append to favorites list
   favorites.push({
     "city": city,
@@ -59,6 +60,7 @@ function renderFavorites(){
     favorites = [];
   }
   favList.innerHTML = [];
+  // append to favorites list
   for (i = 0; i < favorites.length; i++){
     var favListItem = document.createElement("li"); 
     var cityState = document.createElement("h3");
@@ -77,6 +79,7 @@ function renderFavorites(){
     // go button event listener
     goButton.addEventListener("click", function(event){
     var localFavorites = JSON.parse(localStorage.getItem("favorites"));
+    // determines child node's index inside of its parent node 
     var index = Array.from(this.parentNode.parentNode.childNodes).indexOf(this.parentNode);
     getApi(localFavorites[index].city, localFavorites[index].state);
     });
@@ -90,6 +93,7 @@ function renderFavorites(){
     // delete button event listener
     deleteButton.addEventListener("click", function(event){
     var localFavorites = JSON.parse(localStorage.getItem("favorites"));
+    // determines child node's index inside of its parent node 
     var index = Array.from(this.parentNode.parentNode.childNodes).indexOf(this.parentNode);
     localFavorites.splice(index, 1);
     console.log(localFavorites);
