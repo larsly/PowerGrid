@@ -1,4 +1,3 @@
-/* this is where we use any custom CSS not included with Foundation */
 :root {
     --darkGrey: rgb(112, 118, 119);
     --lightGrey: rgb(201, 209, 217);
@@ -96,8 +95,6 @@ footer {
     border: 3px solid var(--blueGrey);
     border-radius: 10px;
     background-color: var(--teal);
-    /* margin-top: 10px; Add this line to adjust the margin */
-    /* width: 100%; Add this line to make the button span the width */
 }
 
 .alertArea {
@@ -111,8 +108,8 @@ footer {
     border-radius: 10px;
     background-color: var(--teal);
     margin: 10px 10px 0 0;
-    width: auto; /* Change the width to auto */
-    display: inline-block; /* Add this line to make the button take the necessary width */
+    width: auto;
+    display: inline-block;
 }
 
 .searchForm,
@@ -158,7 +155,6 @@ footer {
     width: 500px;
 }
 
-#testingStuff {
-    /* border: 3px solid black; */
+#boxContainer {
     height: 100%;
 }
