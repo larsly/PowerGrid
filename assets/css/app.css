@@ -1,21 +1,28 @@
 /* this is where we use any custom CSS not included with Foundation */
 :root {
-    --darkBlueGrey: rgb(72, 129, 147);
-    --lightBlueGrey: rgb(240, 252, 255);
+    --darkGrey: rgb(112, 118, 119);
+    --lightGrey: rgb(201, 209, 217);
     --blueGrey: rgb(108, 154, 168);
-    --yellow: rgb(255, 255, 183);
+    --teal: rgb(8, 130, 139);
+    --darkTeal: rgb(2, 84, 94);
 }
 
 * {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Ubuntu', sans-serif !important;
 }
 
+/* index.html styling */
 .title-bar {
     padding: 20px;
 }
 
 .title-bar-title {
     padding-left: 10px;
+}
+
+#extras {
+    color: white;
+    font-weight: bold;
 }
 
 .heroImg {
@@ -26,9 +33,21 @@
     padding: 65px 35px 65px 35px;
 }
 
+.welcome {
+    font-weight: bold;
+}
+
+.p3,
+.title {
+    font-weight: bold;
+}
+
 .powerUp {
     font-weight: bold;
+    border: 3px solid var(--blueGrey);
     border-radius: 10px;
+    background-color: var(--teal);
+    box-shadow: 7px 7px 15px var(--darkGrey);
 }
 
 .infoCards {
@@ -37,15 +56,9 @@
 
 .card1,
 .card2 {
+    border-top: 7px solid var(--lightGrey);
+    border-radius: 65px;
     padding: 20px;
-}
-
-.card1 {
-    border-radius: 0 80px 80px 0;
-}
-
-.card2 {
-    border-radius: 80px 0 0 80px;
 }
 
 .img1,
@@ -55,28 +68,11 @@
     height: 300px;
 }
 
-
-.search-form-container {
-    flex-direction: column;
-    justify-content: flex-start;
-}
-
-.box1 {
-  margin-top: 55px;
-  margin-bottom: 20px; /* Adjust topbox position */
-}
-
-.box2 {
-  margin-top: 5px; /* Adjust bottom box position */
-}
-
-/* we should avoid using Foundation's built-in classes as classes for our custom styling - this .cell class will apply to every grid element in the entire app*/
-.cell {
-    padding-left: 20px; /* Adjust both box position */
-}
-
 footer {
-    padding: 60px 20px 20px 20px;
+    background-color: black;
+    color: var(--lightGrey);
+    padding: 20px 20px 20px 20px;
+    margin-top: 70px;
 }
 
 .btn {
@@ -87,8 +83,73 @@ footer {
     margin: 5px 0;
   }
 
-/* map styling only */
+/* search.html styling */
+.backBtn,
+#userInputBtn,
+#favBtn,
+.mapBtn {
+    font-weight: bold;
+    border: 3px solid var(--blueGrey);
+    border-radius: 10px;
+    background-color: var(--teal);
+    margin-top: 10px; /* Add this line to adjust the margin */
+    width: 100%; /* Add this line to make the button span the width */
+}
+
+.backBtn { 
+    font-weight: bold;
+    border: 3px solid var(--blueGrey);
+    border-radius: 10px;
+    background-color: var(--teal);
+    margin-top: 10px;
+    width: auto; /* Change the width to auto */
+    display: inline-block; /* Add this line to make the button take the necessary width */
+}
+
+.searchForm,
+.favorites {
+    background-color: var(--lightGrey);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px var(--darkGrey);
+    margin: 15px 0 15px 0;
+    text-align: center;
+}
+
+.gridBox {
+    margin: 15px;
+}
+
+.searchBox {
+    height: 50%;
+}
+
+.resultsBox {
+    height: 100%;
+    width: auto;
+    margin-top: 25px;
+    text-align: center;
+}
+
+.stationListItem {
+    list-style-type: none;
+    background-color: var(--teal);
+    color: white;
+    border: 3px solid var(--blueGrey);
+    border-radius: 15px;
+    padding: 5px;
+    text-align: center;
+    margin: 5px;
+
+}
+
+/* map styling */
 #map {
     height: 500px;
     width: 500px;
+}
+
+#testingStuff {
+    /* border: 3px solid black; */
+    height: 100%;
 }

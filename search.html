@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./assets/css/app.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;700&family=Open+Sans:wght@500&family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -16,58 +17,55 @@
         <!-- <h1>Welcome to the PowerGrid</h1> -->
         <div class="title-bar">
             <div class="title-bar-left">
-              <span class="title-bar-title h3">PowerGrid</span>
-            </div>
+              <a href="index.html" class="title-bar-title h3">PowerGrid</a> <!--adding front page link into the powergrid title-->
+            </div> 
+        </div>
             <div class="title-bar-right">
-              <a href="./index.html" class="button powerUp medium">Go Back</a>
+              <a href="./index.html" class="button backBtn medium">Go Back</a>
             </div>
           </div>
     </header>
 
     <main>
-        <div class="grid-x grid-margin-x ">
-
-            <div class="cell small-4 flex-container flex-dir-column">
-                <div class="card box1 callout primary flex-child-auto">
-                    <div class="card-section">
-                        <h4>Search for Alternative Fuel Sources!</h4>
-                        <form>
-                            <!-- <input type="text"/> -->
-                            <label for="city">City</label>
-                            <input type="text" name="city" id="cityInput">
-                            <label for="state">State</label>
-                            <input type="text" name="state" id="stateInput">
-                            <button id="userInputBtn" class="btn button">Go!</button>
-                            <button id="favBtn" class="btn button">Favorite</button>
-                        </form>
-                    </div>
-                </div>
-                <div class="card box2 callout primary flex-child-auto">
-                    <div class="card-section">
-                        <h4>Favorites</h4>
-                        <ul></ul>
-                    </div>
-                </div>
-            </div>
-            <div class="cell small-4 align-self-top">
-                <h2 class="box1">Showing fuel sources for <span id="search-term"></span></h2>
-                <!-- use next div for list of fuel sources -->
-                <div>
-                    <ul id="places-container" class="list-places"></ul>
-                </div>
-            </div>
-        </div>
-
+        <!-- modal with map -->
         <div class="reveal" id="exampleModal1" data-reveal>
             <h1>Map</h1>
-            <p class="lead">Your nearby stations.</p>
+                <p class="lead">Your nearby stations.</p>
             <div id="map"></div>
             <button class="close-button" data-close aria-label="Close modal" type="button">
               <span aria-hidden="true">&times;</span>
             </button>
-          </div>
+        </div>
+        <!-- modal open button -->
+
         
-          <p><button class="button" data-open="exampleModal1">See it in the map!</button></p>
+        <div id="testingStuff" class="">
+            <div class="grid-x grid-margin-x gridBox">
+                <div class="cell medium-4 flex-container flex-dir-column searchBox">
+                  <div class="cell searchForm">
+                    <h4 class="title">Search for Alternative Fuel Sources!</h4>
+                      <label for="city">City</label>
+                      <input type="text" name="city" id="cityInput">
+                      <label for="state">State</label>
+                      <input type="text" name="state" id="stateInput">
+                      <button id="userInputBtn" class="btn button">Go!</button>
+                      <button id="favBtn" class="btn button">Favorite</button>
+                      <button class="button mapBtn" data-open="exampleModal1">See It In The Map!</button>
+                  </div>
+                  <div class="cell favorites">
+                    <h4 class=" title">Favorites</h4>
+                    <ul id="favorites-container"></ul>
+                  </div>
+                </div>
+                <div class="cell medium-6 resultsBox align-center">
+                  <div class="cell">
+                    <h2 class="title">Showing fuel sources for</h2>
+                    <ul id="places-container" class="list-places cell small-6"></ul>
+                  </div>
+                </div>
+            
+              </div>
+        </div>
     </main>
     
     

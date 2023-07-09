@@ -44,53 +44,136 @@ var setInfoBtn = document.querySelector("#setInfoBtn");
 var infoList = document.querySelector("#infoList");
 var stationList = document.getElementById("places-container");
 var favBtn = document.getElementById("favBtn");
+var favList = document.getElementById("favorites-container");
 
 // grabs user input on click
 userInputBtn.addEventListener("click", function(event) {
     event.preventDefault();
     var city = document.querySelector("#cityInput").value;
     var state = document.querySelector("#stateInput").value;
+    
+    // we need something here that will clear previous search items from page
+    
 
     console.log("I've been clicked! ");
 
-    localStorage.setItem("city", city);
-    localStorage.setItem("state", state);
+    // localStorage.setItem("city", city);
+    // localStorage.setItem("state", state);
     
-    cityInput.value = " "; // clears input for next use
-    stateInput.value = " ";
+    // cityInput.value = " "; // clears input for next use
+    // stateInput.value = " ";
     
-    getApi(); // calls next function
+    getApi(city, state); // calls next function
 });
 
+// print location in favorites list
 favBtn.addEventListener("click", function(event) {
-  // print location in favorites list
+  event.preventDefault();
+  console.log("I've been clicked");
+
+  var city = document.querySelector("#cityInput").value;
+  var state = document.querySelector("#stateInput").value;
+  // if empty nothing favorites
+  if (city.trim().length === 0 || state.trim().length === 0) return;
+  //get favorites list from local storage
+
+  var favorites = JSON.parse(localStorage.getItem("favorites"));
+
+  if (favorites == null) {
+    favorites = [];
+  }
+
+  favorites.push({
+    "city": city,
+    "state": state,
+  });
+
+  // save favorites list to local storage
+  localStorage.setItem("favorites", JSON.stringify(favorites));
+  renderFavorites();
 });
 
+function renderFavorites(){
+  var favorites = JSON.parse(localStorage.getItem("favorites"));
 
-  function getApi() {
-    var chosenCity = localStorage.getItem("city");
-    var chosenState = localStorage.getItem("state");
+  if (favorites == null) {
+    favorites = [];
+  }
+
+  favList.innerHTML = [];
+
+  // append to favorites list
+  for (i = 0; i < favorites.length; i++){
+    var favListItem = document.createElement("li");
+    var cityItem = document.createElement("h3");
+    var stateItem = document.createElement("h3"); 
+        
+    cityItem.innerText = favorites[i].city;
+    stateItem.innerText = favorites[i].state;
+        
+    favListItem.appendChild(cityItem);
+    favListItem.appendChild(stateItem);
+    
+    favList.appendChild(favListItem);
+  
+    localStorage.setItem("city", favorites[i].city);
+    localStorage.setItem("state", favorites[i].state);
+  
+    // adds go button to fav list item
+    var goButton = document.createElement("button");
+    goButton.innerHTML = "Go!";
+    favListItem.appendChild(goButton);
+    goButton.classList.add("button", "go-button");
+  
+    // go button event listener
+    goButton.addEventListener("click", function(event){
+    var localFavorites = JSON.parse(localStorage.getItem("favorites"));
+    // determines child node's index inside of its parent node 
+    var index = Array.from(this.parentNode.parentNode.childNodes).indexOf(this.parentNode);
+    getApi(localFavorites[index].city, localFavorites[index].state);
+    });
+  
+    // adds delete button to fav list item
+    var deleteButton = document.createElement("button");
+    deleteButton.innerHTML = "Delete";
+    favListItem.appendChild(deleteButton);
+    deleteButton.classList.add("button", "delete-button");
+  
+    // delete button event listener
+    deleteButton.addEventListener("click", function(event){
+    var localFavorites = JSON.parse(localStorage.getItem("favorites"));
+    // determines child node's index inside of its parent node 
+    var index = Array.from(this.parentNode.parentNode.childNodes).indexOf(this.parentNode);
+    localFavorites.splice(index, 1);
+    console.log(localFavorites);
+    localStorage.setItem("favorites", JSON.stringify(localFavorites));
+    renderFavorites();
+    })};
+}
+
+
+  function getApi(city, state) {
+    // var chosenCity = localStorage.getItem("city");
+    // var chosenState = localStorage.getItem("state");
     // grabs stored input and concatenates it into a form the API url can use
-    var location = chosenCity + "+" + chosenState; 
-    var evQuery = `https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json?api_key=YuxEi5gp0aq25h7DrlIY1TjV3LyXZI9dxAVRt5oX&location=${location}&fuel_type=ELEC&access=public&radius=15.0&ev_network=all&limit=5`
+    var location = city + "+" + state; 
+    var evQuery = `https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json?api_key=YuxEi5gp0aq25h7DrlIY1TjV3LyXZI9dxAVRt5oX&location=${location}&fuel_type=ELEC&access=public&cards_accepted=A, D, M, V&radius=15.0&ev_network=all&limit=5`
   
     fetch(evQuery)
           .then(function(response) {
             return response.json();
           })
           .then(function(data) {
-            // shows in console that we have an array of five objects
+            stationList.innerHTML = ""
             console.log(data.fuel_stations) 
             var dataSet = data.fuel_stations;
             var stationData = [];
-            for (i = 0; i < dataSet.length; i++) {
-              // all of these console logs work, the info is there
+            for (i = 0; i < dataSet.length; i++) {   
               console.log(dataSet[i]);
               console.log(dataSet[i].station_name);
               console.log(dataSet[i].street_address);
               console.log("latitude: " + dataSet[i].latitude);
               console.log("longitude: " + dataSet[i].longitude);
-              // this next bit is where things get weird - uncomment it to see
               
               var stationListItem = document.createElement("li");
               var stationName = document.createElement("h3");
@@ -101,7 +184,7 @@ favBtn.addEventListener("click", function(event) {
       
               stationListItem.appendChild(stationName);
               stationListItem.appendChild(stationAddress);
-
+              stationListItem.classList.add("stationListItem");
               stationList.appendChild(stationListItem);
               stationData.push({
                 name: dataSet[i].station_name,
@@ -179,3 +262,4 @@ for (let i = 0; i < markers.length; i++) {
   }
 
 window.initMap = initMap;
+renderFavorites();
