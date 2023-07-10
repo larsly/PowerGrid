@@ -45,7 +45,7 @@ favBtn.addEventListener("click", function(event) {
   if (favorites == null) {
     favorites = [];
   }
-
+  // stores key and value in localStorage as an object
   favorites.push({
     "city": city,
     "state": state,
@@ -55,6 +55,7 @@ favBtn.addEventListener("click", function(event) {
   renderFavorites();
 });
 
+// show favorites on page
 function renderFavorites(){
   var favorites = JSON.parse(localStorage.getItem("favorites"));
   if (favorites == null) {
@@ -63,7 +64,6 @@ function renderFavorites(){
   favList.innerHTML = [];
 
   // append to favorites list
-
   for (i = 0; i < favorites.length; i++){
     var favListItem = document.createElement("li"); 
     var cityState = document.createElement("h3");
