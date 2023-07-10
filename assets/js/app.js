@@ -19,6 +19,7 @@ userInputBtn.addEventListener("click", function(event) {
   var city = document.querySelector("#cityInput").value;
   var state = document.querySelector("#stateInput").value;
   console.log("I've been clicked! ");
+  alertArea.innerText = "";
   if(city === "" || state === "") {
     alertArea.innerText = "Please enter all fields!";
     return;
@@ -39,9 +40,8 @@ favBtn.addEventListener("click", function(event) {
   // if empty nothing favorites
   if (city.trim().length === 0 || state.trim().length === 0) return;
   //get favorites list from local storage
-
   var favorites = JSON.parse(localStorage.getItem("favorites"));
-
+  // doesn't print anything if local storage is empty
   if (favorites == null) {
     favorites = [];
   }
@@ -81,6 +81,7 @@ function renderFavorites(){
   
     // go button event listener
     goButton.addEventListener("click", function(event){
+      alertArea.innerText = "";
       var localFavorites = JSON.parse(localStorage.getItem("favorites"));
       // determines child node's index inside of its parent node 
       var index = Array.from(this.parentNode.parentNode.childNodes).indexOf(this.parentNode);
