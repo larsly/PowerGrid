@@ -12,6 +12,10 @@
     list-style-type: none;
 }
 
+ul {
+    margin-left: 0;
+}
+
 /* index.html styling */
 .title-bar {
     padding: 20px;
