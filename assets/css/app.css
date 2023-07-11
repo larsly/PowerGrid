@@ -142,7 +142,6 @@ footer {
 }
 
 .stationListItem {
-    list-style-type: none;
     background-color: var(--teal);
     color: white;
     border: 3px solid var(--blueGrey);
