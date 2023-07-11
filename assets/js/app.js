@@ -45,7 +45,7 @@ favBtn.addEventListener("click", function(event) {
   if (favorites == null) {
     favorites = [];
   }
-
+  // stores key and value in localStorage as an object
   favorites.push({
     "city": city,
     "state": state,
@@ -55,6 +55,7 @@ favBtn.addEventListener("click", function(event) {
   renderFavorites();
 });
 
+// show favorites on page
 function renderFavorites(){
   var favorites = JSON.parse(localStorage.getItem("favorites"));
   if (favorites == null) {
@@ -63,7 +64,6 @@ function renderFavorites(){
   favList.innerHTML = [];
 
   // append to favorites list
-
   for (i = 0; i < favorites.length; i++){
     var favListItem = document.createElement("li"); 
     var cityState = document.createElement("h3");
@@ -106,7 +106,6 @@ function renderFavorites(){
     })};
 }
 
-
 function getApi(city, state) {
   // var chosenCity = localStorage.getItem("city");
   // var chosenState = localStorage.getItem("state");
@@ -114,6 +113,7 @@ function getApi(city, state) {
   searchItem.innerHTML = city + ", " + state;
   var location = city + "+" + state; 
   var evQuery = `https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json?api_key=YuxEi5gp0aq25h7DrlIY1TjV3LyXZI9dxAVRt5oX&location=${location}&fuel_type=ELEC&access=public&cards_accepted=A, D, M, V&radius=15.0&ev_network=all&limit=5`
+
   
   fetch(evQuery)
         .then(function(response) {
